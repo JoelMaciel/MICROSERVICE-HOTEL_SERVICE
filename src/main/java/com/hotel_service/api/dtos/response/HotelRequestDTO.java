@@ -1,8 +1,8 @@
 package com.hotel_service.api.dtos.response;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -11,9 +11,15 @@ import java.time.LocalDate;
 @Builder
 public class HotelRequestDTO {
 
+    @NotBlank
+    @Size(min = 6, max = 50)
     private String name;
+
+    @NotBlank
+    @Size(max = 100)
     private String localization;
-    private boolean isOpen;
-    private LocalDate creationDate;
+
+    @NotBlank
+    @Size(max = 200)
     private String information;
 }

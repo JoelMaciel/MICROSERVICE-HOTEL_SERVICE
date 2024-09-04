@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Builder
+@Builder(toBuilder = true)
 @Entity
 public class Hotel {
 
@@ -27,4 +27,8 @@ public class Hotel {
     private boolean isOpen = false;
     private LocalDate creationDate;
     private String information;
+
+    public void open() {
+        this.isOpen = true;
+    }
 }

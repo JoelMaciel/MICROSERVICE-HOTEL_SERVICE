@@ -10,13 +10,17 @@ import java.util.UUID;
 
 public interface HotelService {
 
-    HotelDTO createHotel(HotelRequestDTO hotelRequestDTO);
+    HotelDTO saveHotel(HotelRequestDTO hotelRequestDTO);
 
     Page<HotelDTO> getAll(Pageable pageable);
-
-    HotelDTO getOne(UUID hotelId);
 
     Hotel optionalHotel(UUID hotelId);
 
     HotelDTO updateHotel(UUID hotelId, HotelRequestDTO hotelRequestDTO);
+
+    HotelDTO findById(UUID hotelId);
+
+    void openHotel(UUID hotelId);
+
+    void deleteHotel(UUID hotelId);
 }

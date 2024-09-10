@@ -1,30 +1,12 @@
-server:
-  port: 8082
-
 spring:
   application:
-    name: HOTEL-SERVICE
-  datasource:
-    url: jdbc:postgresql://localhost:5433/hoteldb
-    username: root
-    password: root
-  jpa:
-    show-sql: true
-  flyway:
-    locations: classpath:db/migration, classpath:db/testdb
+    name: hotel-service
+  config:
+    import: "configserver:"
+  cloud:
+    config:
+      discovery:
+        serviceId: config-server
 
-logging:
-  level:
-    com.joelmaciel.hotel_service: TRACE
-    root: INFO
-    org.springframework.web: DEBUG
-    org.hibernate: INFO
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+
